@@ -12,6 +12,10 @@ namespace cfiDrive.Services
         {
         }
 
+        /// <summary>
+        /// Get List of Todo items
+        /// </summary>
+        /// <returns></returns>
         public async Task<ObservableCollection<TodoItems>> GetListOfTodo( )
         {
             ObservableCollection<TodoItems> result = null;

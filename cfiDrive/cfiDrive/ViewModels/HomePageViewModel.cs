@@ -12,9 +12,14 @@ namespace cfiDrive.ViewModels
 {
     public class HomePageViewModel: BaseViewModel
     {
-
+        /// <summary>
+        /// ToDo list items
+        /// </summary>
         private List<TodoItems> _todoItemsList;
 
+        /// <summary>
+        /// Binding List of Todo items
+        /// </summary>
         public List<TodoItems> TodoItemsList
         {
             get
@@ -27,13 +32,19 @@ namespace cfiDrive.ViewModels
             }
         }
 
-
+        /// <summary>
+        /// HomePage 
+        /// </summary>
         public HomePageViewModel()
         {
             TodoItemsList = new List<TodoItems>();
             CallTodoList();
         }
 
+        /// <summary>
+        /// Call Todo List
+        /// </summary>
+        /// <returns></returns>
         private async Task CallTodoList()
         {
             try

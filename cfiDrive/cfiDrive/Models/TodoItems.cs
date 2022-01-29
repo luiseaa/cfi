@@ -1,6 +1,9 @@
 ﻿using System;
 namespace cfiDrive.Models
 {
+    /// <summary>
+    /// Todo Items Model
+    /// </summary>
     public class TodoItems
     {
         public int userId { get; set; }

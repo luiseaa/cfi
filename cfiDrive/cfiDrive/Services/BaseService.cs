@@ -19,12 +19,21 @@ namespace cfiDrive.Services
         private HttpClient _client;
         private string _endpointUrl;
 
+        /// <summary>
+        /// Base Service
+        /// </summary>
         public BaseService()
         {
             _client = new HttpClient();
              _endpointUrl = "https://jsonplaceholder.typicode.com/";
         }
 
+        /// <summary>
+        /// Get Async method
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="endpoint"></param>
+        /// <returns></returns>
         protected async Task<ObservableCollection<TodoItems>> GetAsync<T>(string endpoint)
         {
             var responseResult = new ObservableCollection<TodoItems>();
@@ -38,11 +47,16 @@ namespace cfiDrive.Services
             }
             catch (WebException requestException)
             {
-
+                Debug.Write(requestException.Message);
             }
             return responseResult;
         }
-    
+
+        /// <summary>
+        /// Invoke Get async
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         private async Task<HttpResponseMessage> InvokeGetAsync(Uri url)
         {
             HttpResponseMessage responseMessage = new HttpResponseMessage();
@@ -51,7 +65,14 @@ namespace cfiDrive.Services
         }
 
         
-
+        /// <summary>
+        /// Handle Server Response
+        /// </summary>
+        /// <param name="response"></param>
+        /// <param name="url"></param>
+        /// <param name="methodType"></param>
+        /// <param name="requestPayload"></param>
+        /// <returns></returns>
         private async Task<string> HandleServerResponse(HttpResponseMessage response, Uri url, string methodType, string requestPayload)
         {
             string resString = string.Empty;
